@@ -113,20 +113,28 @@ function moveEverything() {
 	}
 }
 
+function drawRectangle(color, positionX, positionY, width, height){
+	canvasContext.fillStyle = color
+	canvasContext.fillRect(positionX, positionY, width, height)
+}
+
 function drawEverything() {
 	if(showWinScreen){
 		canvasContext.fillStyle = "white";
 		canvasContext.fillText("Click to restart", canvas.width/2-20, canvas.height/2-100)
 		return
 	}
-	canvasContext.fillStyle = "black";
-	canvasContext.fillRect(0, 0, canvas.width, canvas.height)
+	//canvasContext.fillStyle = "black";
+	//canvasContext.fillRect(0, 0, canvas.width, canvas.height)
+	drawRectangle("black", 0, 0, canvas.width, canvas.height)
 
-	canvasContext.fillStyle = "white";
-	canvasContext.fillRect(0, paddleLeft, PADLE_THICKNESS, 100)
+	//canvasContext.fillStyle = "white";
+	//canvasContext.fillRect(0, paddleLeft, PADLE_THICKNESS, 100)
+	drawRectangle("white", 0, paddleLeft, PADLE_THICKNESS, 100)
 
-	canvasContext.fillStyle = "white";
-	canvasContext.fillRect(canvas.width-PADLE_THICKNESS, paddleRight, PADLE_THICKNESS, 100)
+	//canvasContext.fillStyle = "white";
+	//canvasContext.fillRect(canvas.width-PADLE_THICKNESS, paddleRight, PADLE_THICKNESS, 100)
+	drawRectangle("white", canvas.width-PADLE_THICKNESS, paddleRight, PADLE_THICKNESS, 100)
 
 	canvasContext.fillStyle = "white";
 	canvasContext.beginPath()
