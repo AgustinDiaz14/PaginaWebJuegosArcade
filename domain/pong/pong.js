@@ -115,6 +115,8 @@ function moveEverything() {
 	if (ballX > canvas.width) {
 		if (ballY > paddleRight && ballY < PADDLE_HEIGHT + paddleRight) {
 			ballSpeddX = -ballSpeddX
+			var deltaY = ballY - (paddleRight + PADDLE_HEIGHT / 2)
+			ballSpeddY = deltaY * 0.35
 		}
 		else {
 			player1Score++
