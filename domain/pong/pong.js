@@ -2,16 +2,16 @@ const COMPUTER_SPEED = 6
 
 const PADLE_THICKNESS = 10
 const PADDLE_HEIGHT = 100
-const intialSpeedX = 5
-const intialSpeedY = 2
+const initialSpeedX = 5
+const initialSpeedY = 2
 const winningScore = 2
 var canvas;
 var canvasContext;
 var showWinScreen = false
 var ballX = 0;
-var ballSpeddX = intialSpeedX;
+var ballSpeddX = initialSpeedX;
 var ballY = 0;
-var ballSpeddY = intialSpeedY;
+var ballSpeddY = initialSpeedY;
 
 var paddleLeft = 250
 var paddleRight = 250
@@ -24,6 +24,8 @@ var player2Score = 0
 window.onload = function () {
 	canvas = document.getElementById('game');
 	canvasContext = canvas.getContext('2d');
+	ballX = canvas.width/2
+	ballY = canvas.height/2
 
 	var framesPerSecond = 60
 	setInterval(function () {
@@ -32,6 +34,10 @@ window.onload = function () {
 		drawEverything()
 	}, 1000 / framesPerSecond)
 
+	canvas.addEventListener(
+		'mousedown',
+		resetGame
+	)
 	canvas.addEventListener(
 		'mousemove',
 		function (evt){
@@ -42,6 +48,21 @@ window.onload = function () {
 
 }
 
+function resetGame(evt){
+	restartPlayerPoints(player1Score, player2Score)
+	resetBall()
+	showWinScreen = false
+}
+
+function restarBallPosition(initialPositionX, initialPositionY, finalPositionX, finalPositionY){
+	initialPositionX = finalPositionX
+	initialPositionY = finalPositionY
+}
+function restartPlayerPoints(player1, player2){
+	player1 = 0
+	player2 = 0
+}
+
 function resetBall(){
 	if(player1Score >= winningScore || player2Score >= winningScore){
 		player1Score = 0
@@ -49,7 +70,7 @@ function resetBall(){
 		showWinScreen = true
 	}
 	
-	ballSpeddY = intialSpeedY
+	ballSpeddY = initialSpeedY
 
 	ballSpeddX = -ballSpeddX
 	ballX = canvas.width/2
@@ -124,16 +145,13 @@ function drawEverything() {
 		canvasContext.fillText("Click to restart", canvas.width/2-20, canvas.height/2-100)
 		return
 	}
-	//canvasContext.fillStyle = "black";
-	//canvasContext.fillRect(0, 0, canvas.width, canvas.height)
+	
 	drawRectangle("black", 0, 0, canvas.width, canvas.height)
 
-	//canvasContext.fillStyle = "white";
-	//canvasContext.fillRect(0, paddleLeft, PADLE_THICKNESS, 100)
+	
 	drawRectangle("white", 0, paddleLeft, PADLE_THICKNESS, 100)
 
-	//canvasContext.fillStyle = "white";
-	//canvasContext.fillRect(canvas.width-PADLE_THICKNESS, paddleRight, PADLE_THICKNESS, 100)
+	
 	drawRectangle("white", canvas.width-PADLE_THICKNESS, paddleRight, PADLE_THICKNESS, 100)
 
 	canvasContext.fillStyle = "white";
