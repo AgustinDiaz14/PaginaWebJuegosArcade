@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>First page</title>
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+    <script src="https://cdn.firebase.com/js/client/2.4.0/firebase.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js">
+		var firebaseConfig = {
+			apiKey: "AIzaSyBTTMvFRHFHDAAkEJt0__9KpkIIjEoJ1Sw",
+			authDomain: "paginawebjuegosarcade.firebaseapp.com",
+			databaseURL: "https://paginawebjuegosarcade.firebaseio.com",
+			projectId: "paginawebjuegosarcade",
+			storageBucket: "paginawebjuegosarcade.appspot.com",
+			messagingSenderId: "627296857083",
+			appId: "1:627296857083:web:98de3be8556ce8d38d795e"
+		};
+
+		firebase.initializeApp(firebaseConfig);
+		const auth = firebase.auth()
+	</script>
+    <script src="login.js"></script>
+
+</head>
+
+<body>
+	
+	<div id="login_div">
+		<h3>Firebase Login</h3>
+		<input type="email" placeholder="Email" id="emailField">
+		<input type="password" placeholder="Password" id="passwordField"/>
+        <button onclick="login()" id = "btn_login">Login</button>
+        <!--<a href="hola.html"><link rel="stylesheet" href="btn_login"></a>-->
+	</div>
+
+	<div id="user_div">
+		<h3>Welcome</h3>
+		<p>Welcome to PaginaWebJuegosArcade</p>
+		<button>Logout</button>
+	</div>
+
+	<!---->
+	
+</body>
+
+</html>
