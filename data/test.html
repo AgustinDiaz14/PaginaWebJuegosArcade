@@ -5,9 +5,12 @@
 	<meta charset="utf-8">
 	<title>First page</title>
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
-    <script src="https://cdn.firebase.com/js/client/2.4.0/firebase.js"></script>
-	<script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js">
-		var firebaseConfig = {
+    
+    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-auth.js"></script>
+    
+    <script>
+    var firebaseConfig = {
 			apiKey: "AIzaSyBTTMvFRHFHDAAkEJt0__9KpkIIjEoJ1Sw",
 			authDomain: "paginawebjuegosarcade.firebaseapp.com",
 			databaseURL: "https://paginawebjuegosarcade.firebaseio.com",
@@ -19,7 +22,7 @@
 
 		firebase.initializeApp(firebaseConfig);
 		const auth = firebase.auth()
-	</script>
+    </script>
     <script src="login.js"></script>
 
 </head>
