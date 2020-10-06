@@ -4,25 +4,11 @@
 <head>
 	<meta charset="utf-8">
 	<title>First page</title>
-	<link rel="stylesheet" type="text/css" href="css/styles.css">
     
     <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-auth.js"></script>
     
-    <script>
-    var firebaseConfig = {
-			apiKey: "AIzaSyBTTMvFRHFHDAAkEJt0__9KpkIIjEoJ1Sw",
-			authDomain: "paginawebjuegosarcade.firebaseapp.com",
-			databaseURL: "https://paginawebjuegosarcade.firebaseio.com",
-			projectId: "paginawebjuegosarcade",
-			storageBucket: "paginawebjuegosarcade.appspot.com",
-			messagingSenderId: "627296857083",
-			appId: "1:627296857083:web:98de3be8556ce8d38d795e"
-		};
-
-		firebase.initializeApp(firebaseConfig);
-		const auth = firebase.auth()
-    </script>
+    <script src = "firebaseConf.js"></script>
     <script src="login.js"></script>
 
 </head>
@@ -31,10 +17,9 @@
 	
 	<section class="form-login">
 			<h1> Formulario/Login </h1>
-			<input class="controls" type="text" name="user" value="" placeholder="User" id = "emailField">
-			<input class="controls" type="password" name="password" value="" placeholder="Password" id = "passwordField">
-			<input class="buttons" type="submit" name="" value="Ingresar" onclick="login()">
-			<p><a href="#">Sing Up/Registrarse</a></p>
+			<input type="text" name="user" placeholder="User" id = "emailField">
+			<input type="password" name="password" value="" placeholder="Password" id = "passwordField">
+			<input type="submit" value="Ingresar" onclick="login()">
 	</section>
 
 	<!---->
