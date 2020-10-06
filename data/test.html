@@ -29,19 +29,15 @@
 
 <body>
 	
-	<div id="login_div">
-		<h3>Firebase Login</h3>
-		<input type="email" placeholder="Email" id="emailField">
-		<input type="password" placeholder="Password" id="passwordField"/>
-        <button onclick="login()" id = "btn_login">Login</button>
-        <!--<a href="hola.html"><link rel="stylesheet" href="btn_login"></a>-->
-	</div>
-
-	<div id="user_div">
-		<h3>Welcome</h3>
-		<p>Welcome to PaginaWebJuegosArcade</p>
-		<button>Logout</button>
-	</div>
+	<section class="form-login">
+		<form>
+			<h1> Formulario/Login </h1>
+			<input class="controls" type="text" name="user" value="" placeholder="User" id = "emailField">
+			<input class="controls" type="password" name="password" value="" placeholder="Password" id = "passwordField">
+			<input class="buttons" type="submit" name="" value="Ingresar" onclick="login()">
+			<p><a href="#">Sing Up/Registrarse</a></p>
+		</form>
+	</section>
 
 	<!---->
 	

@@ -1,9 +1,14 @@
-const email=document.querySelector("#emailField")
-const password=document.querySelector("#passwordField")
+function login(){
+  var email= document.getElementById("emailField").value
+  
+  var password= document.getElementById("passwordField").value
+  
 
-auth.createUserWithEmailAndPassword(email, password).catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // ...
-  });
+  auth
+  .createUserWithEmailAndPassword(email, password)
+  .then(user => {
+      console.log("sign up")
+  })
+  
+}
+
