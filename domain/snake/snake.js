@@ -8,7 +8,7 @@ const fruit = [
     30
 ]
 const snakeUnitWidth = 30
-var snakeUnitHeight = 30
+const snakeUnitHeight = 30
 
 
 const snake = [
@@ -31,9 +31,9 @@ window.onload = function () {
             moveSnake(direction)
         }
         else {
-            //
+            
         }
-    }, 1000)
+    }, 1000/10)
 
 
     addEventListener(
@@ -72,12 +72,28 @@ function determineDirection(evt) {
 }
 
 function checkForColision() {
-    console.log(fruit)
+    console.log(snake)
     if(snake[snake.length - 1][0] == fruit[0] && snake[snake.length - 1][1] == fruit[1]){
-        console.log(1)
-        fruit[0] = (Math.floor(Math.random() * 29)) * snakeUnitWidth
-        fruit[1] = (Math.floor(Math.random() * 29)) * snakeUnitHeight
+        
+        fruit[0] = Math.round(Math.random() * canvas.width/snakeUnitWidth)*snakeUnitWidth;
+        fruit[1] = Math.floor(Math.random() * canvas.height/snakeUnitHeight)*snakeUnitHeight;
+        //aca empiza el bug
+        switch (direction){
+        	case "Right": snake.unshift([snake[0][0], snake[0][0]]);
+        	case "Left": snake.unshift([snake[0][0], snake[0][0]]); break;
+        	case "Up": snake.unshift([snake[0][1], snake[0][1]]); break;
+        	case "Down": snake.unshift([snake[0][1], snake[0][1]]); break;
+        }
+        //aca termina
     }
+    
+    if(
+    snake[snake.length - 1][0] == canvas.width || 
+	snake[snake.length - 1][0] == 0 || 
+	snake[snake.length - 1][1] == canvas.height ||
+	snake[snake.length - 1][0] == 0){
+		console.log("game finished")
+	}
 }
 
 function moveSnake(direction) {
