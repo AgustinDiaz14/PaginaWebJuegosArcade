@@ -75,8 +75,8 @@ function checkForColision() {
     console.log(fruit)
     if(snake[snake.length - 1][0] == fruit[0] && snake[snake.length - 1][1] == fruit[1]){
         console.log(1)
-        fruit[0] = Math.floor(Math.random() * canvas.width)
-        fruit[1] = Math.floor(Math.random() * canvas.height)
+        fruit[0] = (Math.floor(Math.random() * 29)) * snakeUnitWidth
+        fruit[1] = (Math.floor(Math.random() * 29)) * snakeUnitHeight
     }
 }
 
