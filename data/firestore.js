@@ -1,18 +1,17 @@
 const userRef = firestore.doc("userInfo/user");
 const passRef = firestore.doc("userInfo/pass");
-const email = document.querySelector("#emailField");
-const password = document.querySelector("#passwordField")
 
-function saveToFirestore(){
-    const userToSave = email.value;
-    const passToSave = password.value;
+//const email = document.querySelector("#emailField");
+//const password = document.querySelector("#passwordField")
 
-    console.log("Guardando" + userToSave + "a Firestore")
+function saveToFirestore(email, password){
+
+    console.log("Guardando" + email + "a Firestore")
     userRef.set({
-        user: userToSave
+        user: email
     })
-    console.log("Guardando" + passToSave + "a Firestore")
+    console.log("Guardando" + password + "a Firestore")
     passRef.set({
-        pass: passToSave
+        pass: password
     })
 }

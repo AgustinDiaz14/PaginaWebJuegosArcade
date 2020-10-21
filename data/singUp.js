@@ -8,6 +8,7 @@ function login(){
     .createUserWithEmailAndPassword(email, password)
     .then(user => {
         console.log("sign up")
+        saveToFirestore(email, password)
     })
     
   }
