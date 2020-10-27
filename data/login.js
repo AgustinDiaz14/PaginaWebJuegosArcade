@@ -1,4 +1,3 @@
-
 function login(){
   var email= document.getElementById("emailField").value
   
@@ -6,7 +5,7 @@ function login(){
   
 
   auth
-  .createUserWithEmailAndPassword(email, password)
+  .singInWithEmailAndPassword(email, password)
   .then(user => {
       console.log("sign up")
   })
