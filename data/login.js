@@ -5,9 +5,9 @@ function login(){
   
 
   auth
-  .singInWithEmailAndPassword(email, password)
+  .signInWithEmailAndPassword(email, password)
   .then(user => {
-      console.log("sign up")
+      window.location.href = './pongScreen.html'
   })
   
 }

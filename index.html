@@ -5,16 +5,24 @@
 	<meta charset="utf-8">
 	<title>First page</title>
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
+
+	<script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-auth.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-firestore.js"></script>
+    
+    <script src = "data/firebaseConf.js"></script>
+	<script src="data/login.js"></script>
+
 </head>
 
 <body>
 	<section class="form-login">
 		<form>
 			<h1> Formulario/Login </h1>
-			<input class="controls" type="text" name="user" value="" placeholder="User">
-			<input class="controls" type="password" name="password" value="" placeholder="Password">
-			<input class="buttons" type="submit" name="" value="Ingresar">
-			<p><a href="#">Sing Up/Registrarse</a></p>
+			<input class="controls" type="text" name="user" value="" placeholder="User" id = "emailField">
+			<input class="controls" type="password" name="password" value="" placeholder="Password" id = "passwordField">
+			<input class="buttons" type="button" name="" value="Ingresar" onclick="login()">
+			<p><a href="signUp.html">Sing Up/Registrarse</a></p>
 		</form>
 	</section>	
 

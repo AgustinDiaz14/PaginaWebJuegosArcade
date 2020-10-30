@@ -91,8 +91,10 @@ function checkForColision() {
     snake[snake.length - 1][0] == canvas.width || 
 	snake[snake.length - 1][0] == 0 || 
 	snake[snake.length - 1][1] == canvas.height ||
-	snake[snake.length - 1][0] == 0){
-		console.log("game finished")
+	snake[snake.length - 1][1] == 0){
+        console.log("game finished")
+        isGameFinished = true
+        saveToFirestore(snake.length - 3)
 	}
 }
 

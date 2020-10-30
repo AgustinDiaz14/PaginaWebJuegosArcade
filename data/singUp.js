@@ -1,14 +1,15 @@
-function login(){
-    var email= document.getElementById("emailField").value
+function signUp(){
+    var email= document.getElementById("email").value
     
-    var password= document.getElementById("passwordField").value
+    var password= document.getElementById("password").value
     
   
     auth
     .createUserWithEmailAndPassword(email, password)
     .then(user => {
-        console.log("sign up")
-        saveToFirestore(email, password)
+        window.location.href = './index.html'
     })
     
   }
+  
+  
