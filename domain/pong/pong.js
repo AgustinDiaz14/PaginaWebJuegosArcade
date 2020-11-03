@@ -142,15 +142,15 @@ function drawEverything() {
 		drawRectangle("black", 0, 0, canvas.width, canvas.height)
 		if(player1Score >= winningScore){
 			canvasContext.fillStyle = "white";
-			canvasContext.fillText("Player 1 won!", canvas.width/2, canvas.height/2)	
+			canvasContext.fillText("Perdiste", canvas.width/2, canvas.height/2)	
 		}
 
 		else if(player2Score >= winningScore){
 			canvasContext.fillStyle = "white";
-			canvasContext.fillText("Player 2 won!", canvas.width/2, canvas.height/2)
+			canvasContext.fillText("Ganaste", canvas.width/2, canvas.height/2)
 		}
 		canvasContext.fillStyle = "white";
-		canvasContext.fillText("Click to restart", canvas.width / 2, canvas.height / 2 - 100)
+		canvasContext.fillText("Click to restart", canvas.width / 2, canvas.height / 2 + 10)
 		return
 	}
 

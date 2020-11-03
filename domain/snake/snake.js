@@ -31,7 +31,9 @@ window.onload = function () {
             moveSnake(direction)
         }
         else {
-            
+		canvasContext.fillStyle = "white"
+		canvasContext.fillText("Puntaje: ", canvas.width / 2, canvas.height / 2)
+            	canvasContext.fillText(snake.length - 3, canvas.width / 2+40, canvas.height / 2) 
         }
     }, 1000/10)
 
@@ -72,14 +74,14 @@ function determineDirection(evt) {
 }
 
 function checkForColision() {
-    console.log(snake)
+    console.log(snake[snake.length-1])
     if(snake[snake.length - 1][0] == fruit[0] && snake[snake.length - 1][1] == fruit[1]){
         
         fruit[0] = Math.round(Math.random() * canvas.width/snakeUnitWidth)*snakeUnitWidth;
         fruit[1] = Math.floor(Math.random() * canvas.height/snakeUnitHeight)*snakeUnitHeight;
         //aca empiza el bug
         switch (direction){
-        	case "Right": snake.unshift([snake[0][0], snake[0][0]]);
+		case "Right": snake.unshift([snake[0][0], snake[0][0]]);break;
         	case "Left": snake.unshift([snake[0][0], snake[0][0]]); break;
         	case "Up": snake.unshift([snake[0][1], snake[0][1]]); break;
         	case "Down": snake.unshift([snake[0][1], snake[0][1]]); break;
@@ -89,9 +91,9 @@ function checkForColision() {
     
     if(
     snake[snake.length - 1][0] == canvas.width || 
-	snake[snake.length - 1][0] == 0 || 
+	snake[snake.length - 1][0] == -30 || 
 	snake[snake.length - 1][1] == canvas.height ||
-	snake[snake.length - 1][1] == 0){
+	snake[snake.length - 1][1] == -30){
         console.log("game finished")
         isGameFinished = true
         saveToFirestore(snake.length - 3)

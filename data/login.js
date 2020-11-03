@@ -7,7 +7,7 @@ function login(){
   auth
   .signInWithEmailAndPassword(email, password)
   .then(user => {
-      window.location.href = './pongScreen.html'
+      window.location.href = './mainScreen.html'
   })
   
 }
