@@ -77,16 +77,10 @@ function checkForColision() {
     console.log(snake[snake.length-1])
     if(snake[snake.length - 1][0] == fruit[0] && snake[snake.length - 1][1] == fruit[1]){
         
+        snake.unshift([snake[0]]);
+
         fruit[0] = Math.round(Math.random() * canvas.width/snakeUnitWidth)*snakeUnitWidth;
         fruit[1] = Math.floor(Math.random() * canvas.height/snakeUnitHeight)*snakeUnitHeight;
-        //aca empiza el bug
-        switch (direction){
-		case "Right": snake.unshift([snake[0][0], snake[0][0]]);break;
-        	case "Left": snake.unshift([snake[0][0], snake[0][0]]); break;
-        	case "Up": snake.unshift([snake[0][1], snake[0][1]]); break;
-        	case "Down": snake.unshift([snake[0][1], snake[0][1]]); break;
-        }
-        //aca termina
     }
     
     if(
