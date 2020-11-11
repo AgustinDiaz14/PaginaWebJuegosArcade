@@ -150,7 +150,7 @@ function drawEverything() {
 			canvasContext.fillText("Ganaste", canvas.width/2, canvas.height/2)
 		}
 		canvasContext.fillStyle = "white";
-		canvasContext.fillText("Click to restart", canvas.width / 2, canvas.height / 2 + 10)
+		canvasContext.fillText("Presione para reiniciar", canvas.width / 2, canvas.height / 2 + 10)
 		return
 	}
 

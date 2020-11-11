@@ -3,7 +3,7 @@ var direction = "Right"
 var canvas
 var canvasContext
 var isGameFinished = false
-const fruit = [
+var fruit = [
     180, 
     30
 ]
@@ -11,7 +11,7 @@ const snakeUnitWidth = 30
 const snakeUnitHeight = 30
 
 
-const snake = [
+var snake = [
     [snakeUnitWidth, snakeUnitHeight],
     [snakeUnitWidth * 2, snakeUnitHeight],
     [snakeUnitWidth * 3, snakeUnitHeight]
@@ -31,17 +31,41 @@ window.onload = function () {
             moveSnake(direction)
         }
         else {
-		canvasContext.fillStyle = "white"
-		canvasContext.fillText("Puntaje: ", canvas.width / 2, canvas.height / 2)
-            	canvasContext.fillText(snake.length - 3, canvas.width / 2+40, canvas.height / 2) 
+		    canvasContext.fillStyle = "white"
+		    canvasContext.fillText("Puntaje: ", canvas.width / 2, canvas.height / 2)
+            canvasContext.fillText(snake.length - 3, canvas.width / 2+40, canvas.height / 2)
+		    canvasContext.fillText("Presione para reiniciar", canvas.width / 2, canvas.height / 2 + 20)
         }
     }, 1000/10)
 
+    
+    addEventListener(
+        'mousedown',
+        resetGame
+    )
 
+    
     addEventListener(
         'keydown',
         determineDirection
     )
+}
+
+function resetGame(){
+    if(isGameFinished){
+        snake = [
+            [snakeUnitWidth, snakeUnitHeight],
+            [snakeUnitWidth * 2, snakeUnitHeight],
+            [snakeUnitWidth * 3, snakeUnitHeight]
+        ]
+        fruit = [
+            180, 
+            30
+        ]
+        isGameFinished = false
+    
+    }
+    
 }
 
 function determineDirection(evt) {
