@@ -25,10 +25,12 @@ function saveToFirestore(points){
 }
 
 function get_points(){
+    const boxPoints = document.getElementById("points_box")
     firestore.collection("snakePoints").orderBy("snakePoints", "desc").limit(10).get()
     .then((snapshot) => {
         snapshot.docs.forEach(doc => {
             console.log(doc.data().snakePoints)
+            boxPoints.innerHTML = "<p> hellouuuu </p>"
         });
     })
 
