@@ -62,8 +62,14 @@ function restartPlayerPoints() {
 }
 
 function resetBall() {
-	if (player1Score >= winningScore || player2Score >= winningScore) {
+	if (player1Score >= winningScore) {
 		showWinScreen = true
+		savePong(0)
+	}
+
+	if(player2Score >= winningScore){
+		showWinScreen = true
+		savePong(1)
 	}
 
 	ballSpeddY = initialSpeedY
