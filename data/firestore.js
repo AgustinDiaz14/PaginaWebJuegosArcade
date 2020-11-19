@@ -32,15 +32,19 @@ function get_points(){
     console.log(user)
     firestore.collection("snakePoints").orderBy("snakePoints", "desc").limit(10).get()
     .then((snapshot) => {
-        snapshot.docs.forEach(doc => {
+        snapshot.docs.forEach((doc) => {
             console.log(doc.data().snakePoints)
-            list += ("<li>" + doc.data() + "</li>")
+            list += ("<li>" + doc.data().snakePoints + "</li>")
+            console.log(list)
         });
+
+        list += "</ul>"
+        boxPoints.innerHTML = list
     })
 
-    list += "</ul>"
+    
     console.log(list)
-    boxPoints.innerHTML = list
+    
 
     firestore.collection("pongPoints").doc(user).get()
     .then((documentSnapshot)=>{
