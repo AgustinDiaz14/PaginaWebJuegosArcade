@@ -1,6 +1,7 @@
 
 function saveToFirestore(points){
     let user = auth.currentUser.uid
+    console.log(user)
     let documents = firestore.collection("snakePoints").doc(user)
     documents.get()
     .then(function(doc){
@@ -26,15 +27,22 @@ function saveToFirestore(points){
 
 function get_points(){
     const boxPoints = document.getElementById("points_box")
+    var list = "<ul>"
+    let user = auth.currentUser.uid
+    console.log(user)
     firestore.collection("snakePoints").orderBy("snakePoints", "desc").limit(10).get()
     .then((snapshot) => {
         snapshot.docs.forEach(doc => {
             console.log(doc.data().snakePoints)
-            boxPoints.innerHTML = "<p> hellouuuu </p>"
+            list += ("<li>" + doc.data() + "</li>")
         });
     })
 
-    firestore.collection("pongPoints").doc(auth.currentUser.uid).get()
+    list += "</ul>"
+    console.log(list)
+    boxPoints.innerHTML = list
+
+    firestore.collection("pongPoints").doc(user).get()
     .then((documentSnapshot)=>{
         console.log((documentSnapshot.data().wonMatches/documentSnapshot.data().playedMatches)*100)
     })
