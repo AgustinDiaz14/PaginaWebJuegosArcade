@@ -4,6 +4,7 @@
 <head>
 	<meta charset="utf-8">
     <title>First page</title>
+    <link rel="stylesheet" type="text/css" href="css/stylesPoints.css">
     
     <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-auth.js"></script>
@@ -15,11 +16,11 @@
 
 <body>
 
-    <script>
-        get_point()
-    </script>
     
-    <div id="points_box" style="text-align: center;">
+
+    <button onclick="getSnakePoints()" id="btn_snake_points">Top 10 puntajes Snake</button>
+    <button onclick="getPongPoints()" id="btn_pong_points">Obtener puntaje del pong</button>
+    <div id="points_box">
     </div>
 </body>
 

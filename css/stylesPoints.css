@@ -1,0 +1,15 @@
+#btn_snake_points{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+#btn_pong_points{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+#points_box{
+    text-align: center;
+}

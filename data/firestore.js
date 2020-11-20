@@ -1,6 +1,9 @@
 
 function saveToFirestore(points){
     let user = auth.currentUser.uid
+    let name = auth.currentUser.displayName
+    console.log(name)
+    
     console.log(user)
     let documents = firestore.collection("snakePoints").doc(user)
     documents.get()
@@ -13,44 +16,61 @@ function saveToFirestore(points){
                 console.log("deleted")
             })
 
-            documents.set({snakePoints: points})
+            documents.set({snakePoints: points, userName: name})
             }
         }
 
         else{
-            documents.set({snakePoints: points})
+            documents.set({snakePoints: points, userName: name})
         }
         
     })
     
 }
 
-function get_points(){
+function getSnakePoints(){
+    console.log(auth.current_user)
     const boxPoints = document.getElementById("points_box")
-    var list = "<ul>"
-    let user = auth.currentUser.uid
-    console.log(user)
+    var list = "<ol>"
+    
     firestore.collection("snakePoints").orderBy("snakePoints", "desc").limit(10).get()
     .then((snapshot) => {
         snapshot.docs.forEach((doc) => {
             console.log(doc.data().snakePoints)
-            list += ("<li>" + doc.data().snakePoints + "</li>")
+            list += ("<li>" + doc.data().userName + " - puntos: " +  doc.data().snakePoints + "</li>")
             console.log(list)
         });
 
-        list += "</ul>"
-        boxPoints.innerHTML = list
+        list += "</ol>"
+        modifyHTML(list)
     })
 
     
     console.log(list)
-    
 
+}
+
+function getPongPoints(){
+    let user = auth.currentUser.uid
+    console.log(user)
+    var data
     firestore.collection("pongPoints").doc(user).get()
     .then((documentSnapshot)=>{
-        console.log((documentSnapshot.data().wonMatches/documentSnapshot.data().playedMatches)*100)
-    })
+        if(documentSnapshot.data() == undefined){
+            data = "<p>Todavia no has jugado al pong</p>"
+        }
+        else{
+            data = "<p>Porcentaje partidas ganadas/partidas jugadas</p>"
+            + "<p>"+(documentSnapshot.data().wonMatches/documentSnapshot.data().playedMatches)*100
+            + "%</p>"    
+        }
+        modifyHTML(data)
+    })    
+}
 
+function modifyHTML(data){
+    const boxPoints = document.getElementById("points_box")
+    boxPoints.innerHTML = data
 }
 
 function savePong(status){

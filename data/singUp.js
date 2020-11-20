@@ -19,8 +19,10 @@ function signUp(){
     .then(result =>{
         auth.currentUser.updateProfile({
             displayName: name
+        }).then(()=>{
+            window.location.href = './index.html'
         })
-        window.location.href = './index.html'
+        
     })
     .catch(function(error){
         switch(error.message){
