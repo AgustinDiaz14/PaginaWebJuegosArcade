@@ -98,12 +98,11 @@ function determineDirection(evt) {
 }
 
 function checkForColision() {
-    console.log(snake[snake.length-1])
     if(snake[snake.length - 1][0] == fruit[0] && snake[snake.length - 1][1] == fruit[1]){
         
         snake.unshift([snake[0]]);
 
-        fruit[0] = Math.round(Math.random() * canvas.width/snakeUnitWidth)*snakeUnitWidth;
+        fruit[0] = Math.floor(Math.random() * canvas.width/snakeUnitWidth)*snakeUnitWidth;
         fruit[1] = Math.floor(Math.random() * canvas.height/snakeUnitHeight)*snakeUnitHeight;
     }
     
@@ -112,7 +111,6 @@ function checkForColision() {
 	snake[snake.length - 1][0] == -30 || 
 	snake[snake.length - 1][1] == canvas.height ||
 	snake[snake.length - 1][1] == -30){
-        console.log("game finished")
         isGameFinished = true
         saveToFirestore(snake.length - 3)
 	}
