@@ -1,14 +1,1 @@
-
-var firebaseConfig = {
-			apiKey: "AIzaSyBTTMvFRHFHDAAkEJt0__9KpkIIjEoJ1Sw",
-			authDomain: "paginawebjuegosarcade.firebaseapp.com",
-			databaseURL: "https://paginawebjuegosarcade.firebaseio.com",
-			projectId: "paginawebjuegosarcade",
-			storageBucket: "paginawebjuegosarcade.appspot.com",
-			messagingSenderId: "627296857083",
-			appId: "1:627296857083:web:98de3be8556ce8d38d795e"
-		};
-
-		firebase.initializeApp(firebaseConfig);
-		const auth = firebase.auth()
-		const firestore = firebase.firestore();
+const _0x386e=['initializeApp','paginawebjuegosarcade.appspot.com','1:627296857083:web:98de3be8556ce8d38d795e','auth','627296857083','paginawebjuegosarcade','AIzaSyBTTMvFRHFHDAAkEJt0__9KpkIIjEoJ1Sw','firestore'];(function(_0x44ebda,_0x4a8d9b){const _0x386e53=function(_0xf4e7a0){while(--_0xf4e7a0){_0x44ebda['push'](_0x44ebda['shift']());}};_0x386e53(++_0x4a8d9b);}(_0x386e,0xd6));const _0xf4e7=function(_0x44ebda,_0x4a8d9b){_0x44ebda=_0x44ebda-0xab;let _0x386e53=_0x386e[_0x44ebda];return _0x386e53;};const _0x30025a=_0xf4e7;var firebaseConfig={'apiKey':_0x30025a(0xab),'authDomain':'paginawebjuegosarcade.firebaseapp.com','databaseURL':'https://paginawebjuegosarcade.firebaseio.com','projectId':_0x30025a(0xb2),'storageBucket':_0x30025a(0xae),'messagingSenderId':_0x30025a(0xb1),'appId':_0x30025a(0xaf)};firebase[_0x30025a(0xad)](firebaseConfig);const auth=firebase[_0x30025a(0xb0)](),firestore=firebase[_0x30025a(0xac)]();
